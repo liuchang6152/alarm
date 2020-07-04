@@ -1,0 +1,51 @@
+server:
+ port: 8081
+
+spring:
+ activemq:
+  broker-url: tcp://127.0.0.1:61616
+  user: admin
+  password: admin
+  close-timeout: 15s
+  in-memory: true      # Ĭ�ϴ���URL�Ƿ�Ӧ�����ڴ��С����ָ������ʽ��������Դ�ֵ��
+  non-blocking-redelivery: false  # �Ƿ��ڻع��ع���Ϣ֮ǰֹͣ��Ϣ���ݡ�����ζ�ŵ����ô�����ʱ����Ϣ˳�򲻻ᱻ������
+  send-timeout: 0     # �ȴ���Ϣ������Ӧ��ʱ�䡣����Ϊ0�ȴ���Զ��
+  queue-name: pcitc_queue
+  topic-name: active.topic.name.model
+
+#  packages:
+#    trust-all: true #�����ô���ᱨ��
+pool:
+ enabled: true
+ max-connections: 10   #���ӳ����������
+ idle-timeout: 30000   #���е����ӹ���ʱ�䣬Ĭ��Ϊ30��
+
+# jms:
+#   pub-sub-domain: true  #Ĭ�������activemq�ṩ����queueģʽ����Ҫʹ��topicģʽ��Ҫ������������
+
+# �Ƿ��������а�
+#spring.activemq.packages.trust-all=
+# Ҫ���ε��ض����Ķ��ŷָ��б������������а�ʱ��
+#spring.activemq.packages.trusted=
+# ����������ͳ���ʱ�Ƿ�����������false���ס�JMSException�쳣����
+#spring.activemq.pool.block-if-full=true
+# �������Ȼ���������׳��쳣ǰ����ʱ�䡣
+#spring.activemq.pool.block-if-full-timeout=-1ms
+# �Ƿ�������ʱ�������ӡ�����������ʱ���ڼ��ȳء�
+#spring.activemq.pool.create-connection-on-startup=true
+# �Ƿ���Pooledconnectionfactory������ͨ��ConnectionFactory��
+#spring.activemq.pool.enabled=false
+# ���ӹ��ڳ�ʱ��
+#spring.activemq.pool.expiry-timeout=0ms
+# ���ӿ��г�ʱ
+#spring.activemq.pool.idle-timeout=30s
+# ���ӳ����������
+#spring.activemq.pool.max-connections=1
+# ÿ�����ӵ���Ч�Ự�������Ŀ��
+#spring.activemq.pool.maximum-active-session-per-connection=500
+# ����"JMSException"ʱ������������
+#spring.activemq.pool.reconnect-on-exception=true
+# �ڿ�����������߳�֮�����е�ʱ�䡣��Ϊ����ʱ��û�п������������߳����С�
+#spring.activemq.pool.time-between-expiration-check=-1ms
+# �Ƿ�ֻʹ��һ��MessageProducer
+#spring.activemq.pool.use-anonymous-producers=true
